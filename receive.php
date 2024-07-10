@@ -9,6 +9,7 @@
         $city = $_POST['city'];
         $province = $_POST['province'];
         $area_code = $_POST['area_code'];
+
         $email = mysqli_real_escape_string($conn, $email);
         $address = mysqli_real_escape_string($conn, $address);
         $city = mysqli_real_escape_string($conn, $city);
@@ -16,7 +17,6 @@
         $area_code = mysqli_real_escape_string($conn, $area_code);
         $sql = "INSERT INTO client_info (email, address, city, province, area_code) VALUES ('$email', '$address', '$city', '$province', '$area_code')";
 
-        // Execute the query and check for success
         if (mysqli_query($conn, $sql)) {
             echo "Record added successfully!";
         } else {
@@ -27,4 +27,7 @@
  mysqli_close($conn);
 
 
+?>
+<?php 
+    require_once "./includes/footer.php"
 ?>
